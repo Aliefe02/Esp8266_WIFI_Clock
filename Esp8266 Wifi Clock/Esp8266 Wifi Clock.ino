@@ -2,8 +2,8 @@
 #include <NTPClient.h>
 #include <WiFiUdp.h>
 #include "Timer.h" 
-const char *ssid     = "SUPERONLINE_WiFi_0902";
-const char *password = "CUYJJ9NAPRYF";
+const char *ssid     = "YOUR_WIFI_SSID_HERE";
+const char *password = "WIFI_PASSWORD_HERE";
 
 Timer timer; 
 
@@ -29,6 +29,9 @@ int numbers[4] ;
 int cathodePins[] = {5, 4, 0, 2};
 int currentHour;
 int currentMinute;
+
+//If you are using common cathode change all 0 to 1 and all 1 to 0
+
 byte table[10] {B00000011, B10011111, B00100101, B00001101, B10011001, B01001001, B01000001, B00011111, B00000001, B00001001};
 byte table2[10] {B00000010, B10011110, B00100100, B00001100, B10011000, B01001000, B01000000, B00011110, B00000000, B00001000};
 
@@ -61,7 +64,9 @@ void setup() {
   }
 
   timeClient.begin();
+  //Change offset according to your country. For Turkey it is +3 which means add 3 hours. for every hour add 3600 for example 2 hours is 7200
   timeClient.setTimeOffset(10800);
+  
 
 }
 
